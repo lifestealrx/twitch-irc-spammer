@@ -1,3 +1,6 @@
+# If you use this code please read the LICENSE included
+# Created by @lifestealrxx on Twitter :)
+
 import socket, time
 
 channel = '#twitchuser'
