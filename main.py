@@ -1,5 +1,4 @@
-# If you use this code please read the LICENSE included
-# Created by @lifestealrxx on Twitter :)
+# Have a suggestion? Tweet it @lifestealrxx
 
 import socket, time
 
