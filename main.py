@@ -1,5 +1,5 @@
 import socket, time, urllib2, json
-channel = '#tryhard_clan'
+channel = '#' + 'tryhard_clan'
 sockets = []
 sockets2 = []
 def login(channel, user, pw, sock):
