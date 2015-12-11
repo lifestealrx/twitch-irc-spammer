@@ -1,5 +1,5 @@
 import socket, time, urllib2, json
-channel = '#tryhard_bot'
+channel = '#tryhard_clan'
 sockets = []
 sockets2 = []
 def login(channel, user, pw, sock):
@@ -19,6 +19,7 @@ def main():
             login(channel, acct[0], acct[1], sock)
             login('#jtv', acct[0], acct[1], sock2)
 def console():
+    global channel
     while True:
         line = raw_input()
         cmd = line.split(' ')        
@@ -32,5 +33,16 @@ def console():
                 for usr in users:
                     sockets2[x].send('PRIVMSG #jtv :/w {} {}\r\n'.format(usr, cmd[1]))
                     time.sleep(.2)
+        elif cmd[0] == 'sing':
+            lyrics = open(cmd[1])
+            for line in lyrics:
+                for x in range(len(sockets)):
+                    sockets[x].send('PRIVMSG {} :{}\r\n'.format(channel, line))
+                    time.sleep(2)
+        elif cmd[0] == 'join':
+            for x in range(len(sockets)):
+                sockets[x].send('PART {}\r\n'.format(channel))
+                sockets[x].send('JOIN {}\r\n'.format(cmd[1]))
+                channel = cmd[1]
 main()
 console()
